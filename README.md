@@ -504,7 +504,7 @@ knowledge.
 
 ## 8. Submission
 
-This assignment is due *Friday 19th April*.
+This assignment is due *Friday 19th April, 10pm*.
 
 To submit your assignment, you must you've pushed all of your code to your gitlab master branch. You can check if you've done this properly by seeing what code is on the gitlab site on your master branch.
  
