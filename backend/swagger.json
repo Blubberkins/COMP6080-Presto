@@ -125,6 +125,21 @@
                     }
                 }
             },
+            "AuthLoginBody": {
+                "name": "Login info",
+                "in": "body",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "email": {
+                            "$ref": "#/components/fields/Email"
+                        },
+                        "password": {
+                            "$ref": "#/components/fields/Password"
+                        }
+                    }
+                }
+            },
             "Authorization": {
                 "name": "Authorization",
                 "in": "header",
