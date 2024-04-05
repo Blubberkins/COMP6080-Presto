@@ -13,6 +13,7 @@
 ## 0. Change Log
 
 - 01/04 Fix movable element spec & video element's url option & Fix backend swaggerdoc 
+- 06/04 Re-weighted feature set 2/3/4 to be more even as per week 8 lecture
 
 ## 1. Before you start
 
@@ -89,7 +90,7 @@ This feature set focuses solely on the ability to register, login, and logout. I
  * This logout button, when clicked, returns you to the login screen.
 
 
-### 2.2. Feature Set 2. Setting up slides (10%)
+### 2.2. Feature Set 2. Setting up slides (13%)
 
 #### 2.2.1. New presentation on Dashboard
 
@@ -136,7 +137,7 @@ This feature set focuses solely on the ability to register, login, and logout. I
 
 * When viewing a particular slide, the slide number should be visible within the slide, position at the **bottom left**. The font-size should be `1em` of any colour, and it should be visible only within a `50px` by `50px` area. When you only have one slide left, this number will just be "1".
 
-### 2.3. Feature Set 3. Putting Elements on a slide (15%)
+### 2.3. Feature Set 3. Putting Elements on a slide (14%)
 
 * Any time when users are prompted for the "size" of an element below, size is always represented in percentage(%) as a number between 0 and 100 where:
   * For width, 100 represents the full width of the deck, 50 represents half the width, etc etc
@@ -203,7 +204,7 @@ This feature set focuses solely on the ability to register, login, and logout. I
     * The block cannot be resized smaller than `1%` of width or height.
     * The block cannot have any of its corners extend beyond the edges of the slide.
 
-### 2.4. Feature Set 4. Further Features (15%)
+### 2.4. Feature Set 4. Further Features (13%)
 
 #### 2.4.1. Font adjustment
 
