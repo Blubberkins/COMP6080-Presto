@@ -313,7 +313,7 @@ You are welcomed to modify the `npm run test` command by updating the `test` scr
 ### 2.8. Other notes
 * The port you can use to `fetch` data from the backend is defined in `frontend/src/config.json`
 * [This article may be useful to some students](https://stackoverflow.com/questions/66284286/react-jest-mock-usenavigate)
-* For users of typescript, [follow this guide](https://gitlab.cse.unsw.edu.au/COMP6080/NOW/react-typescript)
+* For users of typescript, [follow this guide](https://nw-syd-gitlab.cseunsw.tech/COMP6080/23T3/react-typescript)
 * For certain requests you may want to "poll" the backend, i.e. have the friend end repeatedly make an API call every 1 second to check for updates.
 
 ### 3.1. The Frontend
