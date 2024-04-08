@@ -14,7 +14,8 @@
 
 - 01/04 Fix movable element spec & video element's url option & Fix backend swaggerdoc 
 - 06/04 Re-weighted feature set 2/3/4 to be more even as per week 8 lecture
-- 08/04 Clarification on terms used in spec, requirements for thumbnails, slide backgrounds. Example of resizing elements
+- 07/04 Fix backend store object from `{ store: admins[email].store }` to `admins[email].store` to avoid confusion
+- 08/04 Clarification on terms used in spec, requirements for thumbnails, slide backgrounds and url update. Example of resizing elements
 
 ## 1. Before you start
 
@@ -190,6 +191,7 @@ Note: The behaviour after current slide is deleted could be implemented entirely
     2) The code in the textarea 
     3) The font size of the text in `em` as a decimal 
 * The code entered should have whitespace preserved when displayed on screen
+* The code should not have its `font-family` changed if you completed `2.4.1`
 * The code should also be syntax highlighted appropriately to the language being chosen:
   * Valid languages are C, Python, Javascript
   * This element should be able to distinguish between different programming languages based on the input automatically
@@ -218,7 +220,7 @@ Note: The behaviour after current slide is deleted could be implemented entirely
 
 #### 2.4.1. Font adjustment
 
-* For each text box on the slide, on the slideshow edit screen, the user should be able to change its `font-family`.
+* For each text box on the slide, on the slideshow edit screen, the user should be able to change its `font-family`, the user should be able to choose from at least 3 different font-famlies.
 
 #### 2.4.2. Theme and background picker
 
@@ -241,7 +243,7 @@ Note: The behaviour after current slide is deleted could be implemented entirely
 
 #### 2.4.4. URL Updating
 
-* For both editing a slideshow deck and previewing presentation, when on a particular slide, the slide number should be reflected in the URL such that if the page is refreshed or URL is shared, it rediects other users to that exact same slide.
+* For both editing a slideshow deck and previewing presentation, when on a particular slide, the slide number should be reflected in the URL such that if the page is refreshed, the current user will be navigated to the same page.
  
 #### 2.4.5. 🙉🙉🙉Slide transitioning
 
