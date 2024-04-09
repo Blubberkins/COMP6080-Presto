@@ -16,6 +16,7 @@
 - 06/04 Re-weighted feature set 2/3/4 to be more even as per week 8 lecture
 - 07/04 Fix backend store object from `{ store: admins[email].store }` to `admins[email].store` to avoid confusion
 - 08/04 Clarification on terms used in spec, requirements for thumbnails, slide backgrounds and url update. Example of resizing elements
+- 09/04 Correct rectangle maximum width from 300px to a reasonable size
 
 ## 1. Before you start
 
@@ -107,7 +108,7 @@ This feature set focuses solely on the ability to register, login, and logout. I
 * A unique route must exist for dashboard screen
 * On the dashboard, the [card](https://m1.material.io/components/cards.html#) for each presentation should appear as rectangles with a 2:1 width:height ratio.
 * Each rectangle should include the name, a thumbnail (grey square if empty), a description (no text if empty) and the number of slides it contains
-* Rectangles should be evenly spaced in several rows and columns if needed, where each rectangle has a minimum of `100px` width and maximum of `300px` width.
+* Rectangles should be evenly spaced in several rows and columns if needed, where each rectangle has a minimum of `100px` width, the actual width of rectangles in different viewports should look reasonable.
 
 #### 2.2.3. Basics of a presentation controls
 
