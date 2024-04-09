@@ -101,7 +101,7 @@ export const register = (email, password, name) => userLock((resolve, reject) =>
 ***************************************************************/
 
 export const getStore = (email) => userLock((resolve, reject) => {
-  resolve({ store: admins[email].store });
+  resolve(admins[email].store);
 });
 
 export const setStore = (email, store) => userLock((resolve, reject) => {

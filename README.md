@@ -14,6 +14,9 @@
 
 - 01/04 Fix movable element spec & video element's url option & Fix backend swaggerdoc 
 - 06/04 Re-weighted feature set 2/3/4 to be more even as per week 8 lecture
+- 07/04 Fix backend store object from `{ store: admins[email].store }` to `admins[email].store` to avoid confusion
+- 08/04 Clarification on terms used in spec, requirements for thumbnails, slide backgrounds and url update. Example of resizing elements
+- 09/04 Correct rectangle maximum width from 300px to a reasonable size
 
 ## 1. Before you start
 
@@ -74,7 +77,8 @@ This feature set focuses solely on the ability to register, login, and logout. I
  * User must be able to enter their `email` and `password` in a form
  * A button must exist to allow submission of the form
  * If the form submission fails when user tried to login, a reasonable error message should be shown
- * The form must be able to be submitted on enter key in any of the fields
+ * The login form must be able to be submitted on enter key, pressing enter key to login should be an alternative option along with clicking a button
+ * Successfully login will take user to the dashboard screen
 
 #### 2.1.2. Register Screen
  * A unique route must exist for this screen
@@ -83,7 +87,8 @@ This feature set focuses solely on the ability to register, login, and logout. I
  * If the two passwords don't match, the user should receive an error popup before submission.
  * If the form submission fails when user tried to register, a reasonable error message should be shown
  * A button must exist to allow submission of form
- * The form must be able to be submitted on enter key in any of the fields
+ * The register form must be able to be submitted on enter key, pressing enter key to register should be an alternative option along with clicking a button
+ * Successfully register will take user to the dashboard screen
 
 #### 2.1.3. Logout Button
  * On all screens that require an authorised user, a logout button exists.
@@ -96,32 +101,34 @@ This feature set focuses solely on the ability to register, login, and logout. I
 
 * When logged in, users should be presented with a dashboard that contains a button, only visible on the dashboard, called "New presentation".
 * When this button is pressed, a [modal](https://www.w3schools.com/w3css/w3css_modal.asp) appears, where a user can enter the name of a new presentation
-* This modal should contain a "Create" button, where when it is clicked, the modal disappears, a new presentation is created and appears on the dashboard. A default presentation contains a single empty slide (info on this later).
+* This modal should contain a "Create" button for user to click and create presentation. The modal should disappear after user clicked "Create" button, a new presentation is created and appears on the dashboard. A default presentation contains a single empty slide (info on this later).
 
 #### 2.2.2. List of presentations on Dashboard 
 
 * A unique route must exist for dashboard screen
 * On the dashboard, the [card](https://m1.material.io/components/cards.html#) for each presentation should appear as rectangles with a 2:1 width:height ratio.
 * Each rectangle should include the name, a thumbnail (grey square if empty), a description (no text if empty) and the number of slides it contains
-* Rectangles should be evenly spaced in several rows and columns if needed, where each rectangle has a minimum of `100px` width and maximum of `300px` width.
+* Rectangles should be evenly spaced in several rows and columns if needed, where each rectangle has a minimum of `100px` width, the actual width of rectangles in different viewports should look reasonable.
 
 #### 2.2.3. Basics of a presentation controls
 
-* When a particular presentation on the dashboard is clicked, the user should be taken to a new unique route that is parameterised by the presentation ID, which always loads the first slide in the slideshow deck. This route is for editing a specific presentation in a slideshow deck.
+* When a particular presentation on the dashboard is clicked, the user should be taken to a new unique route that is parameterised by the presentation ID, which always loads the first slide in the slideshow deck. This route is for editing a specific presentation, users can add/delete/edit(Info on this later) slides in this presentation within this page.
 * When on this edit presentation page, Two key controls should always be visible and functional, regardless of which slide users are on:
   * "Back" that takes users back to the dashboard.
   * "Delete Presentation" which prompts "Are you sure?", where if "Yes" is clicked, the presentation is deleted and users are taken to the dashboard. If "No" is clicked, then the prompt disappears and the page remains still.
 
-#### 2.2.4. Title editing
+#### 2.2.4. Title & Thumbnail editing
 
 * When viewing a particular presentation, the title of the presentation should be visible at all times somewhere on or above the slideshow deck regardless of which slide users are on.
   * Somewhere near the title should have some text/icon/graphic/button that user can click to bring up a modal to edit the title of the presentation.
+
+* There should be a way on presentation screen which allows user to update the thumbnail of the presentation. 
 
 #### 2.2.5. Creating slides & moving between
 
 * When visiting a particular slide, a button should be visible off the slides that allows users to create a new slide.
 * Creating a new slide will add another slide at the end of the slideshow deck.
-* Once the slideshow deck has at least two slides, controls should appear in the bottom right corner:
+* Once the slideshow deck has at least two slides, controls should appear at a reasonable position in the slideshow deck:
   * These controls should be two arrows, left and right.
   * When users click on these arrows, it takes them to the next or previous slide
   * When users click the associated keyboard keys(**left key** and **right key** in this case), the same corresponding action should happen
@@ -132,6 +139,8 @@ This feature set focuses solely on the ability to register, login, and logout. I
 
 * When visiting a particular slide, a button should be visible off the slide, which allows users to delete that slide.
 * If a user tried to delete the only slide in the slideshow deck, an error should appear instead asking to delete the presentation.
+
+Note: The behaviour after current slide is deleted could be implemented entirely up to your design. E.G. *redirect user to the previous slide*
 
 #### 2.2.7. Slide numbers
 
@@ -164,7 +173,7 @@ This feature set focuses solely on the ability to register, login, and logout. I
 * Somewhere on the slideshow edit screen, for each slide, there should be an action that is clearly described as adding an image to the current slide. This action can be immediately visible in a list of tools, or can be hidden away by some kind of collapsable panel.
   * When this action is clicked, a modal should appear and accept inputs from users for 
     1) The size of the image area 
-    2) Either the URL or a base64 string encoding of the whole image itself 
+    2) Either the URL or a file from local system being parsed to base64 string encoding of the whole image itself 
     3) A description of the image for an `alt` tag
   
 #### 2.3.3. Putting a VIDEO on the slide
@@ -177,12 +186,13 @@ This feature set focuses solely on the ability to register, login, and logout. I
   
 #### 2.3.4. Putting CODE on the slide
 
-* Somewhere on the slideshow edit screen, for each slide, there should be an action that is clearly described as adding a code block to the current slide. Code block is presented by a `textarea`. This action can be immediately visible in a list of tools, or can be hidden away by some kind of collapsable panel.
+* Somewhere on the slideshow edit screen, for each slide, there should be an action that is clearly described as adding a code block to the current slide. Code block is presented by a `textarea`. This action can be immediately visible in a list of tools, or can be hidden away by some kind of collapsable panel. Each code block only contains one programming language.
   * When this action is clicked, a modal should appear and accept inputs from users for 
     1) The size of the textarea
     2) The code in the textarea 
     3) The font size of the text in `em` as a decimal 
 * The code entered should have whitespace preserved when displayed on screen
+* The code should not have its `font-family` changed if you completed `2.4.1`
 * The code should also be syntax highlighted appropriately to the language being chosen:
   * Valid languages are C, Python, Javascript
   * This element should be able to distinguish between different programming languages based on the input automatically
@@ -200,15 +210,18 @@ This feature set focuses solely on the ability to register, login, and logout. I
 * For all of `2.3.1`, `2.3.2`, `2.3.3`, `2.3.4`, and `2.3.5`, change it so that:
   * When you double click on a block, it no longer displays the position as an option to edit the size of the block
   * When you click on a block once, each of the 4 corners should now have a small `5px` x `5px` solid box on it, whereby:
-    * If the user clicks and drags the corners, they can increase or decrease the size of the box (maintaining aspect ratio).
+    * If the user clicks and drags the corners, they can increase or decrease the size of the box.
     * The block cannot be resized smaller than `1%` of width or height.
     * The block cannot have any of its corners extend beyond the edges of the slide.
+    * An example of this behaviour can be described as:
+     
+      ![img](assets/example-resize.png)
 
 ### 2.4. Feature Set 4. Further Features (13%)
 
 #### 2.4.1. Font adjustment
 
-* For each text box on the slide, on the slideshow edit screen, the user should be able to change its `font-family`.
+* For each text box on the slide, on the slideshow edit screen, the user should be able to change its `font-family`, the user should be able to choose from at least 3 different font-famlies.
 
 #### 2.4.2. Theme and background picker
 
@@ -217,6 +230,7 @@ This feature set focuses solely on the ability to register, login, and logout. I
   * The current slide's background in one solid colour, or in a colour gradient; 
   * The default background solid colour or colour gradient of all slides
     * This is the colour that a slide background is set to by default instead of white.
+  * When user has a current slide background, it will overwrite the default slide background
 
   Note: You are free to choose from different gradient directions(E.G. top to down/left to right). It's fully up to you to design a UI that allow users to choose different background options and colours
 
@@ -230,7 +244,7 @@ This feature set focuses solely on the ability to register, login, and logout. I
 
 #### 2.4.4. URL Updating
 
-* For both editing a slideshow deck and previewing presentation, when on a particular slide, the slide number should be reflected in the URL such that if the page is refreshed or URL is shared, it rediects other users to that exact same slide.
+* For both editing a slideshow deck and previewing presentation, when on a particular slide, the slide number should be reflected in the URL such that if the page is refreshed, the current user will be navigated to the same page.
  
 #### 2.4.5. 🙉🙉🙉Slide transitioning
 
@@ -313,7 +327,7 @@ You are welcomed to modify the `npm run test` command by updating the `test` scr
 ### 2.8. Other notes
 * The port you can use to `fetch` data from the backend is defined in `frontend/src/config.json`
 * [This article may be useful to some students](https://stackoverflow.com/questions/66284286/react-jest-mock-usenavigate)
-* For users of typescript, [follow this guide](https://gitlab.cse.unsw.edu.au/COMP6080/NOW/react-typescript)
+* For users of typescript, [follow this guide](https://nw-syd-gitlab.cseunsw.tech/COMP6080/23T3/react-typescript)
 * For certain requests you may want to "poll" the backend, i.e. have the friend end repeatedly make an API call every 1 second to check for updates.
 
 ### 3.1. The Frontend
