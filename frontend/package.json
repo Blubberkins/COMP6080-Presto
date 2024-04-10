@@ -5,8 +5,10 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -46,10 +48,10 @@
   },
   "jest": {
     "transform": {
-        "^.+\\.[t|j]sx?$": "babel-jest"
+      "^.+\\.[t|j]sx?$": "babel-jest"
     },
     "transformIgnorePatterns": [
-        "node_modules/(?!axios)"
+      "node_modules/(?!axios)"
     ]
   }
 }
