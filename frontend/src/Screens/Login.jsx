@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import axios from 'axios';
+import '../styles.css';
 
 function Login ({ token, setTokenFunction }) {
   const [email, setEmail] = React.useState('');
@@ -25,11 +26,13 @@ function Login ({ token, setTokenFunction }) {
   }
 
   return (
-    <>
-    Email: <input type="text" onChange={e => setEmail(e.target.value)} value={email} placeholder="example@email.com" /><br />
-    Password: <input type="password" onChange={e => setPassword(e.target.value)} value={password} /><br />
-    <button onClick={login}>Login</button>
-    </>
+    <div className="login-register-container">
+      <h1>Login to Presto</h1>
+      Email: <input type="text" onChange={e => setEmail(e.target.value)} value={email} placeholder="example@email.com" /><br />
+      Password: <input type="password" onChange={e => setPassword(e.target.value)} value={password} /><br />
+      <button className="login-register-button" onClick={login}>Login</button>
+      <p>New to Presto? <a href="/register">Register here</a></p>
+    </div>
   );
 }
 
