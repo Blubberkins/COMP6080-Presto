@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
+import '../styles.css'
 
 import LogoutButton from '../components/LogoutButton';
 
