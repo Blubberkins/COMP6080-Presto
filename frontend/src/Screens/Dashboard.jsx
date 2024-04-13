@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../styles.css'
 
 import LogoutButton from '../components/LogoutButton';
+import PrestoAppBar from '../components/AppBar';
 
 function Dashboard ({ token, setTokenFunction }) {
   const [store, setStore] = React.useState({});
@@ -24,6 +25,7 @@ function Dashboard ({ token, setTokenFunction }) {
     return <Navigate to="/login" />
   }
   return <>
+    <PrestoAppBar/>
     <LogoutButton token={token} setToken={setTokenFunction} /><br />
     Dashboard
   </>;

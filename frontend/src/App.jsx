@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Dashboard from './screens/Dashboard';
-import Login from './screens/Login';
-import Register from './screens/Register';
+import Dashboard from './Screens/Dashboard';
+import Login from './Screens/Login';
+import Register from './Screens/Register';
 
 function App () {
   let lsToken = null;
