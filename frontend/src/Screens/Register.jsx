@@ -15,14 +15,31 @@ function Register ({ token, setTokenFunction }) {
   }
 
   const register = async () => {
+    let userToken = '';
+
     try {
       const response = await axios.post('http://localhost:5005/admin/auth/register', {
         email,
         password,
         name
       });
+      userToken = response.data.token;
       setTokenFunction(response.data.token);
       navigate('/dashboard');
+    } catch (err) {
+      alert(err.response.data.error);
+    }
+    // put an empty 'slides' object into the user's data store for future use
+    try {
+      await axios.put('http://localhost:5005/store', {
+        store: {
+          slides: {}
+        }
+      }, {
+        headers: {
+          Authorization: userToken,
+        }
+      });
     } catch (err) {
       alert(err.response.data.error);
     }
