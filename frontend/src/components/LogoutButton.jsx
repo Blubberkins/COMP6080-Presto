@@ -11,8 +11,8 @@ function Logout ({ token, setToken }) {
       });
       setToken(null);
     } catch (err) {
-      console.log(err);
       alert(err.response.data.error);
+      setToken(null);
     }
   };
 
