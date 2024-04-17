@@ -24,11 +24,13 @@ function Dashboard ({ token, setTokenFunction }) {
   if (token === null || token === 'null') {
     return <Navigate to="/login" />
   }
-  return <>
-    <PrestoAppBar/>
-    <LogoutButton token={token} setToken={setTokenFunction} /><br />
-    Dashboard
-  </>;
+  return (
+    <>
+      <PrestoAppBar/>
+      <LogoutButton token={token} setToken={setTokenFunction} /><br />
+      Dashboard
+  </>
+  );
 }
 
 export default Dashboard;
