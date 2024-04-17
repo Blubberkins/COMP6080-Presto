@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import axios from 'axios';
-import '../styles.css';
+import { useStyles } from '../styles';
 
 function Register ({ token, setTokenFunction }) {
+  const classes = useStyles();
+
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
@@ -46,14 +48,48 @@ function Register ({ token, setTokenFunction }) {
   }
 
   return (
-    <div className="login-register-container">
-      <h2>Register a Presto account</h2>
-      Email: <input type="text" onChange={e => setEmail(e.target.value)} value={email} placeholder="example@email.com" /><br />
-      Password: <input type="password" onChange={e => setPassword(e.target.value)} value={password} /><br />
-      Confirm Password: <input type="password" onChange={e => setConfirmPassword(e.target.value)} value={confirmPassword} /><br />
-      Name: <input type="text" onChange={e => setName(e.target.value)} value={name} placeholder="Blub Berkins" /><br />
-      <button className="login-register-button" onClick={register}>Register</button>
-      <p>Already have a Presto account? <a href="/login">Login here</a></p>
+    <div className={classes.loginRegisterContainer}>
+      <h2 className={classes.loginRegisterContainerH1H2}>Register a Presto account</h2>
+      Email:
+      <input
+        type="text"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        placeholder="example@email.com"
+        className={classes.loginRegisterContainerInput}
+      />
+      <br />
+      Password:
+      <input
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+        className={classes.loginRegisterContainerInput}
+      />
+      <br />
+      Confirm Password:
+      <input
+        type="password"
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        value={confirmPassword}
+        className={classes.loginRegisterContainerInput}
+      />
+      <br />
+      Name:
+      <input
+        type="text"
+        onChange={(e) => setName(e.target.value)}
+        value={name}
+        placeholder="Blub Berkins"
+        className={classes.loginRegisterContainerInput}
+      />
+      <br />
+      <button className={classes.loginRegisterButton} onClick={register}>
+        Register
+      </button>
+      <p className={classes.loginRegisterContainerP}>
+        Already have a Presto account? <a href="/login">Login here</a>
+      </p>
     </div>
   );
 }
