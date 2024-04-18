@@ -1,11 +1,11 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
-import { PresentationCard } from '../components/PresentationCard';
-import '../styles.css'
+// import { useStyles } from '../styles';
 
 import LogoutButton from '../components/LogoutButton';
 import PrestoAppBar from '../components/AppBar';
+import PresentationCard from '../components/PresentationCard';
 
 function Dashboard ({ token, setTokenFunction }) {
   const [store, setStore] = React.useState({});
@@ -33,6 +33,7 @@ function Dashboard ({ token, setTokenFunction }) {
       <PrestoAppBar/>
       <LogoutButton token={token} setToken={setTokenFunction} /><br />
       Dashboard
+      <PresentationCard name = 'myName' description = 'peepeepoopoo' numSlides={1}/>
   </>
   );
 }
