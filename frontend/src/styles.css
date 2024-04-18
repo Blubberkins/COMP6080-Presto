@@ -1,0 +1,53 @@
+/* Common Elements */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+}
+
+/* Login and Register Elements */
+
+.login-register-container {
+  height: 600px;
+  width: 400px;
+  min-width: 300px;
+  max-width: 80%;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 1px solid black;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 1.1em;
+}
+
+.login-register-container > h1, .login-register-container > h2 {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.login-register-container > input[type="text"], .login-register-container > input[type="password"] {
+  display: block;
+  height: 20px;
+  width: 80%;
+}
+
+.login-register-container > p {
+  margin-top: 2em;
+  font-size: 0.8em;
+}
+
+.login-register-button {
+  height: 30px;
+  width: 125px;
+}
+
