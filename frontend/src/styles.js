@@ -45,30 +45,6 @@ export const useStyles = makeStyles((theme) => ({
     width: '125px',
   },
 
-  presentationCardContainer: {
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    padding: '10px',
-    position: 'relative',
-    width: '90%',
-    maxWidth: '400px',
-    margin: '0 auto',
-    height: 0,
-    paddingBottom: '45%',
-    [theme.breakpoints.down('sm')]: {
-      paddingBottom: '60%',
-    },
-  },
-
-  presentationCardH1: {
-    marginBottom: '1em',
-    position: 'absolute', // Position the H1 absolutely within its container
-    top: 0,
-    left: 0,
-    margin: 0,
-    padding: '0 10px',
-  },
-
   appBar: {
     flexGrow: 1,
     display: 'flex',
@@ -77,4 +53,12 @@ export const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
   },
+
+  presentationCardContainer: {
+    display: 'flex',
+  },
+
+  presentationCard: {
+    margin: '20px'
+  }
 }));

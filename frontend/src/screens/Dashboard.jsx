@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
+import { useStyles } from '../styles';
 // import { useStyles } from '../styles';
 
 import PrestoAppBar from '../components/AppBar';
@@ -8,6 +9,7 @@ import PresentationCard from '../components/PresentationCard';
 
 function Dashboard ({ token, setTokenFunction }) {
   const [store, setStore] = React.useState({});
+  const classes = useStyles();
 
   React.useEffect(() => {
     axios.get('http://localhost:5005/store', {
@@ -30,7 +32,10 @@ function Dashboard ({ token, setTokenFunction }) {
   return (
     <>
       <PrestoAppBar loginCheck={true} token={token} setTokenFunction={setTokenFunction}/>
-      <PresentationCard name = 'myName' description = 'peepeepoopoo' numSlides={1}/>
+      <div className={classes.presentationCardContainer}>
+        <PresentationCard className={classes.presentationCard}/>
+        <PresentationCard className={classes.presentationCard}/>
+      </div>
   </>
   );
 }
