@@ -1,4 +1,5 @@
 import { makeStyles } from '@mui/styles';
+// import { borderRadius } from '@mui/system';
 
 export const useStyles = makeStyles((theme) => ({
   // Login and Register Elements
@@ -43,4 +44,22 @@ export const useStyles = makeStyles((theme) => ({
     height: '30px',
     width: '125px',
   },
+
+  appBar: {
+    flexGrow: 1,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+  },
+
+  presentationCardContainer: {
+    display: 'flex',
+    marginTop: '1em'
+  },
+
+  presentationCard: {
+    marginRight: '1em',
+  }
 }));
