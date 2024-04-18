@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography } from '@mui/material';
 import LogoutButton from './LogoutButton';
 import { useStyles } from '../styles';
 
-const PrestoAppBar = () => {
+const PrestoAppBar = ({ loginCheck, token, setTokenFunction }) => {
   const classes = useStyles();
 
   return (
@@ -12,7 +12,7 @@ const PrestoAppBar = () => {
         <Typography variant="h6">
         Presto
         </Typography>
-        <LogoutButton/>
+        {loginCheck && <LogoutButton token={token} setToken={setTokenFunction} />}
       </Toolbar>
     </AppBar>
   );
