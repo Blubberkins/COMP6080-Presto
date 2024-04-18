@@ -20,7 +20,10 @@ function Dashboard ({ token, setTokenFunction }) {
     });
   }, []);
 
-  console.log(store);
+  // user details will be logged every time store is updated
+  React.useEffect(() => {
+    console.log('Store:', store);
+  }, [store]);
 
   if (token === null || token === 'null') {
     return <Navigate to="/login" />
