@@ -56,9 +56,10 @@ export const useStyles = makeStyles((theme) => ({
 
   presentationCardContainer: {
     display: 'flex',
+    marginTop: '1em'
   },
 
   presentationCard: {
-    margin: '20px'
+    marginRight: '1em',
   }
 }));
