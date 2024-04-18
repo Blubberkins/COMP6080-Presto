@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 const PresentationCard = ({ name, thumbnail, description, numSlides }) => {
   return <>
-    <div></div>
+    <div>
+        
+    </div>
   </>;
 };
 
