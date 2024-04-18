@@ -67,7 +67,7 @@ const PresentationCard = () => {
   const cardHeight = Math.max(cardWidth / 2, 100 / 2); // Ensure minimum height of 100px
 
   return (
-    <Card className={classes.presentationCard} style={{ width: cardWidth, height: cardHeight }}>
+    <Card style={{ width: cardWidth, height: cardHeight }}>
       <CardActionArea style={{ height: '100%' }}>
         <CardMedia
           className={classes.media}
