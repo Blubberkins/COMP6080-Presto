@@ -162,10 +162,29 @@ export const useStyles = makeStyles((theme) => ({
 
   presentationCardContainer: {
     display: 'flex',
-    marginTop: '1em'
+    marginTop: '1em',
+    flexWrap: 'wrap',
+    gap: '10px',
   },
 
   presentationCard: {
     marginRight: '1em',
-  }
+  },
+
+  appBarContainer: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+
+  modal: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 300,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5], // This line is removed to prevent shadow effect
+    padding: theme.spacing(2, 4, 3),
+  },
 }));
