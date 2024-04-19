@@ -35,7 +35,8 @@ function Register ({ token, setTokenFunction }) {
     try {
       await axios.put('http://localhost:5005/store', {
         store: {
-          slides: {}
+          slides: {},
+          numPresentations: 0
         }
       }, {
         headers: {
