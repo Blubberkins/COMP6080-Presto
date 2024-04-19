@@ -56,7 +56,9 @@ export const useStyles = makeStyles((theme) => ({
 
   presentationCardContainer: {
     display: 'flex',
-    marginTop: '1em'
+    marginTop: '1em',
+    flexWrap: 'wrap',
+    gap: '10px',
   },
 
   presentationCard: {

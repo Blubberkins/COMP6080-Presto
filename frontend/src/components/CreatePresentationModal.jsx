@@ -5,13 +5,15 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CreatePresentationModal = ({ token }) => {
   const [open, setOpen] = React.useState(false);
   const [presentationName, setPresentationName] = React.useState('');
   const [error, setError] = React.useState(false);
-  const [numPresentations, setNumPresentations] = React.useState(null)
+  const [numPresentations, setNumPresentations] = React.useState(-1)
   const classes = useStyles();
+  const navigate = useNavigate();
 
   const handleOpen = () => {
     setOpen(true);
@@ -21,6 +23,7 @@ const CreatePresentationModal = ({ token }) => {
   };
 
   const createPresentation = async () => {
+    // Check if form was submitted
     if (!presentationName) {
       setError(true);
       return;
@@ -43,7 +46,8 @@ const CreatePresentationModal = ({ token }) => {
         slides: {},
         deleted: false
       }
-      currData.store.slides[numPresentations] = newPresentation;
+      const presentationId = newData.store.numPresentations;
+      newData.store.slides[numPresentations] = newPresentation;
       newData.store.numPresentations = numPresentations + 1;
 
       await axios.put('http://localhost:5005/store', newData, {
@@ -53,6 +57,7 @@ const CreatePresentationModal = ({ token }) => {
       });
 
       handleClose();
+      navigate(`/presentation/${presentationId}`);
     } catch (err) {
       alert(err.response.data.error);
     }
