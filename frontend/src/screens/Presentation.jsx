@@ -65,7 +65,7 @@ function Presentation ({ token, presentationId }) { // added presentationId para
     deleted: false,
   };
 
-  // Fetch presentation info whenever presentationId or token values are changed
+  // fetch presentation info whenever presentationId or token values are changed
   React.useEffect(() => {
     // if statement for loading mock presentation
     if (presentationId === 'sample') {
@@ -209,7 +209,8 @@ function Presentation ({ token, presentationId }) { // added presentationId para
     return <div>Loading...</div>;
   }
 
-  const slidesArray = Object.values(presentation.slides); // Convert slides object to array
+  // convert slides object to array
+  const slidesArray = Object.values(presentation.slides);
 
   return <>
     {/* Top Bar */}

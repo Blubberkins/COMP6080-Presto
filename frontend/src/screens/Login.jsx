@@ -14,6 +14,7 @@ function Login ({ token, setTokenFunction }) {
     return <Navigate to="/dashboard" />
   }
 
+  // Posts login request and navigates to dashboard if successful
   const login = async () => {
     try {
       const response = await axios.post('http://localhost:5005/admin/auth/login', {
