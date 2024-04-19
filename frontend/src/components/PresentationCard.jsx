@@ -16,7 +16,7 @@ const PresentationCard = ({ name, description, numSlides, thumbnail, presentatio
 
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
   const cardWidth = matches ? 400 : 200;
-  const cardHeight = Math.max(cardWidth / 2, 100 / 2); // Ensure minimum height of 100px
+  const cardHeight = Math.max(cardWidth / 2, 100 / 2); // For minimum height
 
   const cardOnClick = () => {
     navigate(`/presentation/${presentationId}`);

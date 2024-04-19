@@ -35,6 +35,7 @@ const CreatePresentationModal = ({ token }) => {
           Authorization: `Bearer ${token}`,
         }
       });
+      // Take data and store into new variable so that it is persistent
       setNumPresentations(response.data.store.numPresentations);
       const currData = response.data;
       const newData = currData;
