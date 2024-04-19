@@ -1,4 +1,4 @@
-context('Login flow', () => {
+context('Admin Happy Path', () => {
   beforeEach(() => {
     cy.visit('localhost:3000');
   });
@@ -8,6 +8,7 @@ context('Login flow', () => {
     const email = 'soorria@email.com';
     const password = 'super secure password';
     const welcomeText = "You're logged in!";
+
 
     cy.get('input[name=email]').focus().type(email);
     cy.get('input[name=password]').focus().type(password);
