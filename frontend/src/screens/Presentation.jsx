@@ -45,7 +45,7 @@ function Presentation ({ token, presentationId }) { // added presentationId para
     deleted: false,
   */
 
-  // Mock Presentation - DELETE WHEN FINISHED TESTING //
+  // Mock Presentation - used for testing //
   const mockPresentation = {
     title: 'Sample Presentation',
     thumbnail: 'sample-thumbnail.jpg',
@@ -67,7 +67,7 @@ function Presentation ({ token, presentationId }) { // added presentationId para
 
   // Fetch presentation info whenever presentationId or token values are changed
   React.useEffect(() => {
-    // If statement for loading mock presentation
+    // if statement for loading mock presentation
     if (presentationId === 'sample') {
       setPresentation(mockPresentation);
     } else {
@@ -145,6 +145,7 @@ function Presentation ({ token, presentationId }) { // added presentationId para
     }
   };
 
+  // change slide
   const slideChange = (direction) => {
     if (direction === 'next' && currentSlideIndex < presentation.numSlides - 1) {
       setCurrentSlideIndex((prevIndex) => prevIndex + 1);
@@ -157,6 +158,7 @@ function Presentation ({ token, presentationId }) { // added presentationId para
     setDeleteConfirmVisible(false);
   };
 
+  // add new slide to presentation
   const addSlide = () => {
     const newSlideIndex = presentation.numSlides + 1;
     setPresentation({
@@ -173,6 +175,7 @@ function Presentation ({ token, presentationId }) { // added presentationId para
     setCurrentSlideIndex(newSlideIndex - 1);
   };
 
+  // delete slide from presentation
   const deleteSlide = () => {
     if (presentation.numSlides === 1) {
       alert('This is the last slide in the presentation, please delete the presentation instead.');
@@ -188,7 +191,7 @@ function Presentation ({ token, presentationId }) { // added presentationId para
       slides: newSlides,
     });
 
-    // adjust current slide index if it's now out of bounds
+    // adjust current slide index to previous if index is now invalid
     if (currentSlideIndex === presentation.numSlides - 1) {
       setCurrentSlideIndex(currentSlideIndex - 1);
     }
