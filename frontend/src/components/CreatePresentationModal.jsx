@@ -10,6 +10,7 @@ const CreatePresentationModal = ({ token }) => {
   const [open, setOpen] = React.useState(false);
   const [presentationName, setPresentationName] = React.useState('');
   const [error, setError] = React.useState(false);
+  const [numPresentations, setNumPresentations] = React.useState(null)
   const classes = useStyles();
 
   const handleOpen = () => {
@@ -19,40 +20,43 @@ const CreatePresentationModal = ({ token }) => {
     setOpen(false);
   };
 
-  const createPresentation = () => {
+  const createPresentation = async () => {
     if (!presentationName) {
-      setError(true); // Set error state to true if presentationName is empty
-      return; // Prevent further execution
+      setError(true);
+      return;
     }
-    axios.get('http://localhost:5005/store', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
-    }).then((response) => {
-      // GET THE NUM PRESENTATIONS
-    });
+
     try {
-      axios.put('http://localhost:5005/store', {
-        store: {
-          slides: {
-            title: { presentationName },
-            thumbnail: '',
-            description: 'This is a description',
-            numSlides: 0,
-            slides: {},
-            deleted: false
-          }
-        },
-      }, {
+      const response = await axios.get('http://localhost:5005/store', {
         headers: {
           Authorization: `Bearer ${token}`,
         }
       });
+      setNumPresentations(response.data.store.numPresentations);
+      const currData = response.data;
+      const newData = currData;
+      const newPresentation = {
+        title: presentationName,
+        thumbnail: '',
+        description: '',
+        numSlides: 0,
+        slides: {},
+        deleted: false
+      }
+      currData.store.slides[numPresentations] = newPresentation;
+      newData.store.numPresentations = numPresentations + 1;
+
+      await axios.put('http://localhost:5005/store', newData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
+
+      handleClose();
     } catch (err) {
-      alert(err.response.data.error)
+      alert(err.response.data.error);
     }
-    handleClose();
-  }
+  };
 
   return (
     <React.Fragment>
@@ -81,7 +85,7 @@ const CreatePresentationModal = ({ token }) => {
                 id="outlined-basic"
                 label="Name"
                 variant="outlined"
-                onChange={setPresentationName}/>
+                onChange={(e) => setPresentationName(e.target.value)}/>
             </Box>
             <Button onClick={createPresentation} style={{ marginLeft: '0' }}>Create Presentation</Button>
         </Box>
