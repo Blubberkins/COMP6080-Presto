@@ -2,7 +2,6 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { useStyles } from '../styles';
-// import { useStyles } from '../styles';
 
 import PrestoAppBar from '../components/AppBar';
 import PresentationCard from '../components/PresentationCard';
