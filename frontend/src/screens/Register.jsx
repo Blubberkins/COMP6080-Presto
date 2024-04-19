@@ -16,6 +16,7 @@ function Register ({ token, setTokenFunction }) {
     return <Navigate to="/dashboard" />
   }
 
+  // Posts register request and navigates to dashboard if successful
   const register = async () => {
     let userToken = '';
 
@@ -31,7 +32,7 @@ function Register ({ token, setTokenFunction }) {
     } catch (err) {
       alert(err.response.data.error);
     }
-    // put an empty 'slides' object into the user's data store for future use
+    // also puts an empty 'slides' object and 'numPresentations' into the user's data store for future use
     try {
       await axios.put('http://localhost:5005/store', {
         store: {
