@@ -55,6 +55,20 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     flexWrap: 'nowrap',
     padding: theme.spacing(1, 2),
+    fontSize: '1.1em',
+    // Adjust font size for smaller screens
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.9em',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.8em',
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '0.4em',
+      '& > *': {
+        marginRight: theme.spacing(0.5), // Adjust spacing for extra small screens
+      },
+    },
   },
 
   presentationTopBarLeft: {
@@ -76,8 +90,23 @@ export const useStyles = makeStyles((theme) => ({
   topBarButton: {
     '&.MuiButton-root': {
       color: 'white',
+      minWidth: 'auto',
+      padding: theme.spacing(0.5, 1),
     },
-    margin: theme.spacing(0, 1),
+    fontSize: '0.8em',
+    // Adjust font size and padding for smaller screens
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.7em',
+      padding: theme.spacing(0.4, 0.8),
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.6em',
+      padding: theme.spacing(0.3, 0.7),
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '0.3em',
+      padding: theme.spacing(0.2, 0.5),
+    },
   },
 
   editModal: {
@@ -150,7 +179,7 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: '1em',
   },
 
-  // Dashboard
+  // Dashboard Elements
   appBar: {
     flexGrow: 1,
     display: 'flex',
