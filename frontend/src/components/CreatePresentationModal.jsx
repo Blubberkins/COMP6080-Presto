@@ -47,6 +47,7 @@ const CreatePresentationModal = ({ token }) => {
         deleted: false
       }
       const presentationId = newData.store.numPresentations;
+      setNumPresentations(presentationId);
       newData.store.slides[numPresentations] = newPresentation;
       newData.store.numPresentations = numPresentations + 1;
 
